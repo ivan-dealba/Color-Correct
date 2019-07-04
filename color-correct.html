@@ -75,8 +75,9 @@
       function randColor() {
 
         // Set random word
-        var var1 = colors[Math.floor(Math.random() * 5)];
-        console.log(var1);
+        targetColor = colors[Math.floor(Math.random() * 5)];
+        $('#rand-target-color').text(targetColor);
+        // console.log(targetColor);
 
         // Set random word color
 

@@ -88,32 +88,12 @@
       function randColor() {
 
         // Set random word
-        targetColor = colors[Math.floor(Math.random() * 5)];
+        targetColor = colors[Math.floor(Math.random() * 6)];
         $('#rand-target-color').text(targetColor);
 
         // Set random word color
-        $(function () {
-            function shuffle(colorsOfText) {
-                var currentIndex = colorsOfText.length, temporaryValue, randomIndex;
-
-                // While there remain elements to shuffle...
-                while (0 !== currentIndex) {
-
-                // Pick a remaining element...
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex -= 1;
-
-                // And swap it with the current element.
-                temporaryValue = colorsOfText[currentIndex];
-                colorsOfText[currentIndex] = colorsOfText[randomIndex];
-                colorsOfText[randomIndex] = temporaryValue;
-                }
-
-                return colorsOfText;
-            }
-            colorsOfText = shuffle(colorsOfText);
-            $('#rand-target-color').css('color', colorsOfText.pop());
-        })
+        targetColorOfText = colorsOfText[Math.floor(Math.random() * 6)];
+        $('#rand-target-color').css('color', targetColorOfText);
      }
 
       randColor();

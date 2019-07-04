@@ -50,7 +50,20 @@
     $(document).ready(function() {
 
       // Array for word colors
-      var colorsOfText = [];
+      var colorsOfText = [
+        // brown
+        '#A52A2A',
+        // blue
+        '#0000ff',
+        // magenta
+        '#ff00ff',
+        // teal
+        '#008080',
+        // coral
+        '#f88379',
+        // black
+        '#000000'
+      ];
 
       // Target word
       var targetColor;
@@ -77,12 +90,31 @@
         // Set random word
         targetColor = colors[Math.floor(Math.random() * 5)];
         $('#rand-target-color').text(targetColor);
-        // console.log(targetColor);
 
         // Set random word color
+        $(function () {
+            function shuffle(colorsOfText) {
+                var currentIndex = colorsOfText.length, temporaryValue, randomIndex;
 
+                // While there remain elements to shuffle...
+                while (0 !== currentIndex) {
 
-      }
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = colorsOfText[currentIndex];
+                colorsOfText[currentIndex] = colorsOfText[randomIndex];
+                colorsOfText[randomIndex] = temporaryValue;
+                }
+
+                return colorsOfText;
+            }
+            colorsOfText = shuffle(colorsOfText);
+            $('#rand-target-color').css('color', colorsOfText.pop());
+        })
+     }
 
       randColor();
 

@@ -12,7 +12,7 @@
 
   <style>
     #rand-target-color,
-    #color-picker li {
+    #color-picker{
       font-size: 24px;
     }
   </style>
@@ -94,20 +94,29 @@
         // Set random word color
         targetColorOfText = colorsOfText[Math.floor(Math.random() * 6)];
         $('#rand-target-color').css('color', targetColorOfText);
-     }
+      };
 
       randColor();
 
       // This function creates the actual "game" logic.
       function createColorPicker() {
+        
+        var pickAColor = colors;
 
+        for(var i = colors.length; i > 0; i--){
+            console.log(`i = ${i}`);
+            console.log(`Starting array = ${pickAColor}`);
+
+            var choices = pickAColor.splice(Math.floor(Math.random() * pickAColor.length), 1);
+            $('#color-picker').append(`${choices} `);
+            console.log(choices);
+            console.log(`Ending array = ${pickAColor}`);
+            console.log('-----');
+        }
+
+
+        // $('#color-picker').text(colors);
         // Shuffle color array
-        $(document).ready(function(){
-
-            
-
-
-        })
 
 
         // Push to text color array
@@ -123,6 +132,8 @@
         // Make word a random color
 
       }
+      
+      createColorPicker();
 
       // Clear the divs and arrays upon each round.
       function clear() {

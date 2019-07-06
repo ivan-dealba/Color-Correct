@@ -104,11 +104,9 @@
         var pickAColor = colors;
 
         for(var i = colors.length; i > 0; i--){
-            console.log(`i = ${i}`);
-            console.log(`Starting array = ${pickAColor}`);
-
             var choices = pickAColor.splice(Math.floor(Math.random() * pickAColor.length), 1);
             $('#color-picker').append(`${choices} `);
+            $('#color-picker').append('<br>');
             console.log(choices);
             console.log(`Ending array = ${pickAColor}`);
             console.log('-----');
